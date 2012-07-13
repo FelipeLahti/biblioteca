@@ -1,6 +1,6 @@
 package com.twu28.biblioteca.ui;
 
-import com.twu28.biblioteca.Book;
+import com.twu28.biblioteca.library.Book;
 import com.twu28.biblioteca.localization.Localization;
 import com.twu28.biblioteca.menu.AppMenu;
 import com.twu28.biblioteca.menu.AppMenuItem;
@@ -15,17 +15,32 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public class GUI {
+
+    private AppMenu menu;
+
+    public GUI()
+    {
+        createMenu();
+    }
+
+    private void createMenu() {
+        menu = new AppMenu();
+        menu.addItem(new AppMenuItem(Localization.MENU_VIEW_ALL_BOOKS, Localization.SELECTOR_ID_VIEW_ALL_BOOKS));
+        menu.addItem(new AppMenuItem(Localization.MENU_RESERVE_A_BOOK, Localization.SELECTOR_ID_RESERVE_A_BOOK));
+        menu.addItem(new AppMenuItem(Localization.MENU_CHECK_LIBRARY_NUMBER, Localization.SELECTOR_ID_CHECK_LIBRARY_NUMBER));
+    }
+
+
     public void showMessage(String message) {
         System.out.println(message);
     }
 
-    public void showMenu(AppMenu menu) {
-
+    public void showMenu() {
         showMenuHeader();
 
         for(AppMenuItem item : menu.getItems())
         {
-            showItem(item);
+            showMenuItem(item);
         }
     }
 
@@ -33,7 +48,7 @@ public class GUI {
         System.out.println(Localization.MENU_HEADER_DEFAULT);
     }
 
-    private void showItem(AppMenuItem item) {
+    private void showMenuItem(AppMenuItem item) {
         System.out.println(String.format("%d) %s", item.getSelectorId(), item.getDisplayName()));
     }
 
@@ -53,5 +68,10 @@ public class GUI {
     private void showBookListHeader() {
         System.out.println(Localization.BOOK_LIST_HEADER);
         System.out.println(Localization.BOOK_LIST_HEADER_2);
+    }
+
+    public AppMenu getMenu()
+    {
+        return menu;
     }
 }

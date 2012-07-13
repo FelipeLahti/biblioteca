@@ -1,34 +1,31 @@
 package com.twu28.biblioteca;
 
+import com.twu28.biblioteca.library.Library;
 import com.twu28.biblioteca.localization.Localization;
 import com.twu28.biblioteca.menu.AppMenu;
 import com.twu28.biblioteca.menu.AppMenuItem;
 import com.twu28.biblioteca.menu.InvalidMenuException;
 import com.twu28.biblioteca.ui.GUI;
 
-import java.awt.*;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class AppLauncher {
 
     public static void main(String[] args)
     {
+        Library lib = new Library();
+
         GUI ui = new GUI();
         ui.showMessage(Localization.WELCOME_MESSAGE);
 
-        AppMenu menu = new AppMenu();
-        menu.addItem(new AppMenuItem(Localization.MENU_VIEW_ALL_BOOKS, Localization.SELECTOR_ID_VIEW_ALL_BOOKS));
-        menu.addItem(new AppMenuItem(Localization.MENU_RESERVE_A_BOOK, Localization.SELECTOR_ID_RESERVE_A_BOOK));
-        menu.addItem(new AppMenuItem(Localization.MENU_CHECK_LIBRARY_NUMBER, Localization.SELECTOR_ID_CHECK_LIBRARY_NUMBER));
 
-        ui.showMenu(menu);
+
+        ui.showMenu();
 
         while(true)
         {
             try {
-                AppMenuItem itemSelected = menu.readOption();
+                AppMenuItem itemSelected = ui.getMenu().readOption();
 
                 switch (itemSelected.getSelectorId())
                 {
@@ -37,7 +34,7 @@ public class AppLauncher {
                     case Localization.SELECTOR_ID_RESERVE_A_BOOK:
                         break;
                     case Localization.SELECTOR_ID_VIEW_ALL_BOOKS:
-                        Library lib = new Library();
+
                         ui.clear();
                         ui.showViewAllBooks(lib.getAllBooksAvailable());
                         break;
@@ -48,16 +45,16 @@ public class AppLauncher {
 
                 System.in.read();
                 ui.clear();
-                ui.showMenu(menu);
+                ui.showMenu();
 
             } catch (IOException e) {
                 ui.clear();
                 ui.showMessage(Localization.MENU_INVALID_SELECTION);
-                ui.showMenu(menu);
+                ui.showMenu();
             } catch (InvalidMenuException e) {
                 ui.clear();
                 ui.showMessage(Localization.MENU_INVALID_SELECTION);
-                ui.showMenu(menu);
+                ui.showMenu();
             }
         }
     }

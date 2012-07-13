@@ -1,5 +1,7 @@
 package com.twu28.biblioteca;
 
+import com.twu28.biblioteca.library.Book;
+import com.twu28.biblioteca.library.Library;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;

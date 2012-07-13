@@ -26,7 +26,7 @@ public class GUITests {
         menu.addItem(new AppMenuItem(Localization.MENU_CHECK_LIBRARY_NUMBER, Localization.SELECTOR_ID_CHECK_LIBRARY_NUMBER));
 
         GUI ui = new GUI();
-        ui.showMenu(menu);
+        ui.showMenu();
 
         //Coach Question: Same question above.
     }
