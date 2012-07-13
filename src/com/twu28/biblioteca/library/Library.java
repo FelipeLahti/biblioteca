@@ -23,4 +23,22 @@ public class Library {
     public List<Book> getAllBooksAvailable() {
         return books;
     }
+
+    public void reserveBook(int bookId) throws InvalidBookException {
+        Book book = findBookById(bookId);
+
+        if ( book == null )
+        {
+            throw new InvalidBookException();
+        }
+    }
+
+    public Book findBookById(int bookId) {
+        for(Book book : books)
+        {
+            if ( book.getId() == bookId )
+                return book;
+        }
+        return null;
+    }
 }

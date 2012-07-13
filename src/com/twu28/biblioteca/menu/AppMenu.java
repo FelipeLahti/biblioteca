@@ -2,6 +2,7 @@ package com.twu28.biblioteca.menu;
 
 import com.sun.org.apache.xml.internal.utils.BoolStack;
 import com.twu28.biblioteca.ui.GUI;
+import com.twu28.biblioteca.utils.IOUtils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,8 +25,7 @@ public class AppMenu {
     public AppMenuItem readOption() throws IOException, InvalidMenuException {
 
         try {
-            BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
-            int optionSelected = Integer.parseInt(bufferRead.readLine());
+            int optionSelected = Integer.parseInt(IOUtils.readLine());
 
             for(int i = 0; i < items.size(); i++)
             {
