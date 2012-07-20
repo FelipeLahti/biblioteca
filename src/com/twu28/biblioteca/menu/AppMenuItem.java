@@ -23,4 +23,8 @@ public class AppMenuItem {
     public int getSelectorId() {
         return selectorId;
     }
+
+    public String toFormattedString() {
+        return String.format("%d) %s", selectorId, displayName);
+    }
 }

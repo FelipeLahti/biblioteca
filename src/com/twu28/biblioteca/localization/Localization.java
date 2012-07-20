@@ -25,8 +25,10 @@ public class Localization {
     public static final String BOOK_LIST_HEADER_2 = "Id | Title | Author:";
 
     public static final String INVALID_BOOK = "Sorry we don't have that book yet.";
+    public static final String ALREADY_RESERVED = "The book is already reserved";
     public static final String BOOK_RESERVED = "Thank You! Enjoy the book.";
     public static final String WHAT_BOOK_DO_YOU_WANT = "Hey, what book do you want?";
 
     public static final String CHECK_LIBRARY_INFORMATION = "Please talk to Librarian. Thank you.";
+
 }

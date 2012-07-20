@@ -1,11 +1,17 @@
 package com.twu28.biblioteca.library;
 
+import com.twu28.biblioteca.library.exceptions.AlreadyReservedBookException;
+import com.twu28.biblioteca.library.exceptions.InvalidBookException;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Library {
 
     private List<Book> books = new ArrayList<Book>();
+    private Map<Integer, ReservedBook> reservedBooks = new HashMap<Integer, ReservedBook>();
 
     public Library()
     {
@@ -24,19 +30,31 @@ public class Library {
         return books;
     }
 
-    public void reserveBook(int bookId) throws InvalidBookException {
+    public void reserveBook(int bookId) throws InvalidBookException, AlreadyReservedBookException {
         Book book = findBookById(bookId);
 
         if ( book == null )
         {
             throw new InvalidBookException();
         }
+        else if ( isBookReserved(book) )
+        {
+            throw new AlreadyReservedBookException();
+        }
+        else
+        {
+            reservedBooks.put(book.getId(), new ReservedBook(book.getId()));
+        }
+    }
+
+    private boolean isBookReserved(Book book) {
+        return reservedBooks.containsKey(book.getId());
     }
 
     public Book findBookById(int bookId) {
         for(Book book : books)
         {
-            if ( book.getId() == bookId )
+            if ( book.hasId(bookId) )
                 return book;
         }
         return null;

@@ -1,9 +1,12 @@
 package com.twu28.biblioteca;
 
 import com.twu28.biblioteca.library.Book;
-import com.twu28.biblioteca.library.InvalidBookException;
+import com.twu28.biblioteca.library.exceptions.InvalidBookException;
 import com.twu28.biblioteca.library.Library;
+import com.twu28.biblioteca.library.exceptions.AlreadyReservedBookException;
 import org.junit.Test;
+
+import java.util.List;
 
 import static junit.framework.Assert.*;
 
@@ -13,7 +16,9 @@ public class LibraryTest {
     public void testGetAllBook()
     {
         Library lib = new Library();
-        assertNotNull(lib.getAllBooksAvailable());
+        List<Book> books = lib.getAllBooksAvailable();
+
+        assertEquals(10, books.size());
     }
 
     @Test
@@ -31,14 +36,6 @@ public class LibraryTest {
     }
 
     @Test
-    public void testLoadBooks()
-    {
-        Library lib = new Library();
-        //l.loadBooks();
-        //Coach Question: How to test private methods
-    }
-
-    @Test
     public void testReserveInvalidItemLibrary()
     {
         int bookId = -1023;
@@ -50,6 +47,8 @@ public class LibraryTest {
             fail();
         } catch (InvalidBookException e)
         {
+        } catch (AlreadyReservedBookException e) {
+            fail();
         }
     }
 
@@ -63,6 +62,26 @@ public class LibraryTest {
             lib.reserveBook(bookId);
         } catch (InvalidBookException e) {
             fail();
+        } catch (AlreadyReservedBookException e) {
+            fail();
+        }
+    }
+
+    @Test
+    public void testReservedBook()
+    {
+        int bookId = 1;
+
+        Library lib = new Library();
+        try {
+            lib.reserveBook(bookId);
+            lib.reserveBook(bookId);
+            fail();
+        } catch (InvalidBookException e) {
+            fail();
+        } catch (AlreadyReservedBookException e2)
+        {
+
         }
     }
 
@@ -71,13 +90,14 @@ public class LibraryTest {
     {
         Library lib = new Library();
 
-        assertNotNull(lib.findBookById(1));
+        assertEquals(1, lib.findBookById(1).getId());
     }
 
     @Test
     public void testFindBookThatNotExists()
     {
         Library lib = new Library();
+
         assertNull(lib.findBookById(-1111));
     }
 }

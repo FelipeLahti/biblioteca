@@ -30,7 +30,6 @@ public class GUI {
         menu.addItem(new AppMenuItem(Localization.MENU_CHECK_LIBRARY_NUMBER, Localization.SELECTOR_ID_CHECK_LIBRARY_NUMBER));
     }
 
-
     public void showMessage(String message) {
         System.out.println(message);
     }
@@ -49,7 +48,7 @@ public class GUI {
     }
 
     private void showMenuItem(AppMenuItem item) {
-        System.out.println(String.format("%d) %s", item.getSelectorId(), item.getDisplayName()));
+        System.out.println(item.toFormattedString());
     }
 
     public void clear() {
@@ -61,7 +60,7 @@ public class GUI {
         showBookListHeader();
         for(Book book : allBooksAvailable)
         {
-            System.out.println(String.format("%d %s %s", book.getId(), book.getTitle(), book.getAuthor()));
+            System.out.println(book.toFormattedString());
         }
     }
 

@@ -22,4 +22,12 @@ public class Book {
     public String getAuthor() {
         return author;
     }
+
+    public boolean hasId(int bookId) {
+        return bookId == id;
+    }
+
+    public String toFormattedString() {
+        return String.format("%d %s %s", id, title, author);
+    }
 }

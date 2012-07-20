@@ -1,16 +1,14 @@
 package com.twu28.biblioteca;
 
-import com.twu28.biblioteca.library.InvalidBookException;
+import com.twu28.biblioteca.library.exceptions.AlreadyReservedBookException;
+import com.twu28.biblioteca.library.exceptions.InvalidBookException;
 import com.twu28.biblioteca.library.Library;
 import com.twu28.biblioteca.localization.Localization;
-import com.twu28.biblioteca.menu.AppMenu;
 import com.twu28.biblioteca.menu.AppMenuItem;
 import com.twu28.biblioteca.menu.InvalidMenuException;
 import com.twu28.biblioteca.ui.GUI;
 import com.twu28.biblioteca.utils.IOUtils;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 public class AppLauncher {
@@ -43,6 +41,8 @@ public class AppLauncher {
                             ui.showMessage(Localization.BOOK_RESERVED);
                         } catch (InvalidBookException e) {
                             ui.showMessage(Localization.INVALID_BOOK);
+                        } catch (AlreadyReservedBookException e) {
+                            ui.showMessage(Localization.ALREADY_RESERVED);
                         }
 
                         break;
