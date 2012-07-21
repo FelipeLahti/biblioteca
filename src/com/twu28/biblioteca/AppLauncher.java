@@ -30,31 +30,39 @@ public class AppLauncher {
                     case Localization.SELECTOR_ID_CHECK_LIBRARY_NUMBER:
                         ui.showMessage(Localization.CHECK_LIBRARY_INFORMATION);
                         break;
+
                     case Localization.SELECTOR_ID_RESERVE_A_BOOK:
                         ui.clear();
                         ui.showMessage(Localization.WHAT_BOOK_DO_YOU_WANT);
 
-                        int bookId = Integer.parseInt(IOUtils.readLine());
-
                         try {
+                            int bookId = Integer.parseInt(IOUtils.readLine());
                             lib.reserveBook(bookId);
                             ui.showMessage(Localization.BOOK_RESERVED);
                         } catch (InvalidBookException e) {
                             ui.showMessage(Localization.INVALID_BOOK);
                         } catch (AlreadyReservedBookException e) {
                             ui.showMessage(Localization.ALREADY_RESERVED);
+                        } catch (NumberFormatException e) {
+                            ui.showMessage(Localization.INVALID_BOOK);
                         }
 
                         break;
-                    case Localization.SELECTOR_ID_VIEW_ALL_BOOKS:
 
+                    case Localization.SELECTOR_ID_VIEW_ALL_BOOKS:
                         ui.clear();
                         ui.showViewAllBooks(lib.getAllBooksAvailable());
+                        break;
+
+                    case Localization.SELECTOR_ID_VIEW_ALL_MOVIES:
+                        ui.clear();
+                        ui.showViewAllMovies(lib.getAllMoviesAvailable());
                         break;
                     default:
                         ui.showMessage(Localization.EMBARRASING_MESSAGE);
                         System.exit(1);
                 }
+
                 ui.showMessage(Localization.RETURN_MESSAGE);
                 System.in.read();
                 ui.clear();

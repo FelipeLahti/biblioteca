@@ -14,11 +14,14 @@ public class Localization {
     public static final String MENU_VIEW_ALL_BOOKS = "View all books";
     public static final int SELECTOR_ID_VIEW_ALL_BOOKS = 1;
 
+    public static final String MENU_VIEW_ALL_MOVIES = "View all movies";
+    public static final int SELECTOR_ID_VIEW_ALL_MOVIES = 2;
+
     public static final String MENU_RESERVE_A_BOOK = "Reserve a book";
-    public static final int SELECTOR_ID_RESERVE_A_BOOK = 2;
+    public static final int SELECTOR_ID_RESERVE_A_BOOK = 3;
 
     public static final String MENU_CHECK_LIBRARY_NUMBER = "Check library number";
-    public static final int SELECTOR_ID_CHECK_LIBRARY_NUMBER = 3;
+    public static final int SELECTOR_ID_CHECK_LIBRARY_NUMBER = 4;
 
     /////////////////////////// BOOK  //////////////////////////////
     public static final String BOOK_LIST_HEADER = "All books available:";
@@ -31,4 +34,6 @@ public class Localization {
 
     public static final String CHECK_LIBRARY_INFORMATION = "Please talk to Librarian. Thank you.";
 
+    /////////////////////////// MOVIE  //////////////////////////////
+    public static final String MOVIE_LIST_HEADER = "Name | Director | Rating";
 }

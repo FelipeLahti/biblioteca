@@ -1,6 +1,7 @@
 package com.twu28.biblioteca.ui;
 
 import com.twu28.biblioteca.library.Book;
+import com.twu28.biblioteca.library.Movie;
 import com.twu28.biblioteca.localization.Localization;
 import com.twu28.biblioteca.menu.AppMenu;
 import com.twu28.biblioteca.menu.AppMenuItem;
@@ -23,13 +24,6 @@ public class GUI {
         createMenu();
     }
 
-    private void createMenu() {
-        menu = new AppMenu();
-        menu.addItem(new AppMenuItem(Localization.MENU_VIEW_ALL_BOOKS, Localization.SELECTOR_ID_VIEW_ALL_BOOKS));
-        menu.addItem(new AppMenuItem(Localization.MENU_RESERVE_A_BOOK, Localization.SELECTOR_ID_RESERVE_A_BOOK));
-        menu.addItem(new AppMenuItem(Localization.MENU_CHECK_LIBRARY_NUMBER, Localization.SELECTOR_ID_CHECK_LIBRARY_NUMBER));
-    }
-
     public void showMessage(String message) {
         System.out.println(message);
     }
@@ -41,14 +35,6 @@ public class GUI {
         {
             showMenuItem(item);
         }
-    }
-
-    private void showMenuHeader() {
-        System.out.println(Localization.MENU_HEADER_DEFAULT);
-    }
-
-    private void showMenuItem(AppMenuItem item) {
-        System.out.println(item.toFormattedString());
     }
 
     public void clear() {
@@ -64,13 +50,42 @@ public class GUI {
         }
     }
 
+    public AppMenu getMenu()
+    {
+        return menu;
+    }
+
+    public void showViewAllMovies(List<Movie> movies) {
+        showMovieHeader();
+
+        for( Movie movie : movies )
+        {
+            System.out.println(movie.toFormattedString());
+        }
+    }
+
+    private void createMenu() {
+        menu = new AppMenu();
+        menu.addItem(new AppMenuItem(Localization.MENU_VIEW_ALL_BOOKS, Localization.SELECTOR_ID_VIEW_ALL_BOOKS));
+        menu.addItem(new AppMenuItem(Localization.MENU_VIEW_ALL_MOVIES, Localization.SELECTOR_ID_VIEW_ALL_MOVIES));
+        menu.addItem(new AppMenuItem(Localization.MENU_RESERVE_A_BOOK, Localization.SELECTOR_ID_RESERVE_A_BOOK));
+        menu.addItem(new AppMenuItem(Localization.MENU_CHECK_LIBRARY_NUMBER, Localization.SELECTOR_ID_CHECK_LIBRARY_NUMBER));
+    }
+
+    private void showMenuHeader() {
+        System.out.println(Localization.MENU_HEADER_DEFAULT);
+    }
+
+    private void showMenuItem(AppMenuItem item) {
+        System.out.println(item.toFormattedString());
+    }
+
     private void showBookListHeader() {
         System.out.println(Localization.BOOK_LIST_HEADER);
         System.out.println(Localization.BOOK_LIST_HEADER_2);
     }
 
-    public AppMenu getMenu()
-    {
-        return menu;
+    private void showMovieHeader() {
+          System.out.println(Localization.MOVIE_LIST_HEADER);
     }
 }

@@ -11,15 +11,25 @@ import java.util.Map;
 public class Library {
 
     private List<Book> books = new ArrayList<Book>();
+    private List<Movie> movies = new ArrayList<Movie>();
     private Map<Integer, ReservedBook> reservedBooks = new HashMap<Integer, ReservedBook>();
 
     public Library()
     {
         loadBooks();
+        loadMovies();
+    }
+
+    private void loadMovies() {
+        for(int i = 0; i < 14; i++)
+        {
+            movies.add(new Movie("Movie name", "Director " + i, i % 11));
+        }
+
+        movies.add(new Movie("Movie name - no rating", "Director"));
     }
 
     private void loadBooks() {
-        //TODO: Load xml books
         for(int i = 0; i < 10; i++)
         {
             books.add(new Book(i, "Some book " + i, "Some description " + i));
@@ -58,5 +68,9 @@ public class Library {
                 return book;
         }
         return null;
+    }
+
+    public List<Movie> getAllMoviesAvailable() {
+        return movies;
     }
 }

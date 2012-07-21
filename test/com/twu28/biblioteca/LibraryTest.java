@@ -1,9 +1,9 @@
 package com.twu28.biblioteca;
 
 import com.twu28.biblioteca.library.Book;
-import com.twu28.biblioteca.library.exceptions.InvalidBookException;
+import com.twu28.biblioteca.library.Movie;
 import com.twu28.biblioteca.library.Library;
-import com.twu28.biblioteca.library.exceptions.AlreadyReservedBookException;
+import com.twu28.biblioteca.library.exceptions.*;
 import org.junit.Test;
 
 import java.util.List;
@@ -99,5 +99,15 @@ public class LibraryTest {
         Library lib = new Library();
 
         assertNull(lib.findBookById(-1111));
+    }
+
+    @Test
+    public void testGetAllMovies()
+    {
+        Library lib = new Library();
+
+        List<Movie> movies = lib.getAllMoviesAvailable();
+
+        assertEquals(15, movies.size());
     }
 }
