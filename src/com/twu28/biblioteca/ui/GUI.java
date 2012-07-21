@@ -70,6 +70,7 @@ public class GUI {
         menu.addItem(new AppMenuItem(Localization.MENU_VIEW_ALL_MOVIES, Localization.SELECTOR_ID_VIEW_ALL_MOVIES));
         menu.addItem(new AppMenuItem(Localization.MENU_RESERVE_A_BOOK, Localization.SELECTOR_ID_RESERVE_A_BOOK));
         menu.addItem(new AppMenuItem(Localization.MENU_CHECK_LIBRARY_NUMBER, Localization.SELECTOR_ID_CHECK_LIBRARY_NUMBER));
+        menu.addItem(new AppMenuItem(Localization.MENU_LOGIN, Localization.SELECTOR_LOGIN));
     }
 
     private void showMenuHeader() {
