@@ -32,7 +32,7 @@ public class Library {
     private void loadBooks() {
         for(int i = 0; i < 10; i++)
         {
-            books.add(new Book(i, "Some book " + i, "Some description " + i));
+            books.add(new Book(i, "Some book " + i, "Some author " + i));
         }
     }
 

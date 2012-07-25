@@ -22,20 +22,6 @@ public class LibraryTest {
     }
 
     @Test
-    public void testBookCreation()
-    {
-        int id = 0;
-        String name = "Book name";
-        String description = "Book description";
-
-        Book book = new Book(id, name, description);
-
-        assertEquals(id, book.getId());
-        assertEquals(name, book.getTitle());
-        assertEquals(description, book.getAuthor());
-    }
-
-    @Test
     public void testReserveInvalidItemLibrary()
     {
         int bookId = -1023;

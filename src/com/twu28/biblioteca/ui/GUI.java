@@ -71,6 +71,8 @@ public class GUI {
         menu.addItem(new AppMenuItem(Localization.MENU_RESERVE_A_BOOK, Localization.SELECTOR_ID_RESERVE_A_BOOK));
         menu.addItem(new AppMenuItem(Localization.MENU_CHECK_LIBRARY_NUMBER, Localization.SELECTOR_ID_CHECK_LIBRARY_NUMBER));
         menu.addItem(new AppMenuItem(Localization.MENU_LOGIN, Localization.SELECTOR_LOGIN));
+        menu.addItem(new AppMenuItem(Localization.MENU_LOGOUT, Localization.SELECTOR_LOGOUT));
+        menu.addItem(new AppMenuItem(Localization.MENU_EXIT, Localization.SELECTOR_EXIT));
     }
 
     private void showMenuHeader() {

@@ -48,8 +48,14 @@ public class AppController {
                     case Localization.SELECTOR_LOGIN:
                         doLogin();
                         break;
+                    case Localization.SELECTOR_LOGOUT:
+                        auth.logout();
+                        break;
+                    case Localization.SELECTOR_EXIT:
+                        System.exit(0);
+                        break;
                     default:
-                        defaultActionForUnknowError();
+                        defaultActionForUnknownError();
                 }
 
                 ui.showMessage(Localization.RETURN_MESSAGE);
@@ -87,7 +93,7 @@ public class AppController {
         }
     }
 
-    private static void defaultActionForUnknowError() {
+    private static void defaultActionForUnknownError() {
         ui.showMessage(Localization.EMBARRASING_MESSAGE);
         System.exit(1);
     }

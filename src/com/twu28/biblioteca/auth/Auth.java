@@ -49,4 +49,9 @@ public class Auth {
     public User getUserLogged() {
         return userLogged;
     }
+
+    public void logout() {
+        isLogged = false;
+        userLogged = null;
+    }
 }

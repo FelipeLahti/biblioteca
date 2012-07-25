@@ -3,7 +3,7 @@ package com.twu28.biblioteca.localization;
 public class Localization {
 
     public static final String WELCOME_MESSAGE = "Welcome customer!";
-    public static final String EMBARRASING_MESSAGE = "Sorry, unknow error. Please contact your admin.";
+    public static final String EMBARRASING_MESSAGE = "Sorry, unknown error. Please contact your admin.";
     public static final String RETURN_MESSAGE = "Press enter to return to menu!";
 
     /////////////////////////// MENU OPTIONS //////////////////////////////
@@ -26,6 +26,12 @@ public class Localization {
     public static final String MENU_LOGIN = "Login";
     public static final int SELECTOR_LOGIN = 5;
 
+    public static final String MENU_LOGOUT = "Logout";
+    public static final int SELECTOR_LOGOUT = 6;
+
+    public static final String MENU_EXIT = "Exit";
+    public static final int SELECTOR_EXIT = 7;
+
     /////////////////////////// BOOK  //////////////////////////////
     public static final String BOOK_LIST_HEADER = "All books available:";
     public static final String BOOK_LIST_HEADER_2 = "Id | Title | Author:";
@@ -33,17 +39,20 @@ public class Localization {
     public static final String INVALID_BOOK = "Sorry we don't have that book yet.";
     public static final String ALREADY_RESERVED = "The book is already reserved";
     public static final String BOOK_RESERVED = "Thank You! Enjoy the book.";
-    public static final String WHAT_BOOK_DO_YOU_WANT = "Hey, what book do you want?";
+    public static final String WHAT_BOOK_DO_YOU_WANT = "Hey, what book do you want? Please, enter the book Id.";
 
-    /////////////////////////// Library number  //////////////////////////////
+    /////////////////////////// LIBRARY NUMBER  //////////////////////////////
     public static final String LIBRARY_USER_NUMBER = "Your library number is %s";
     public static final String CHECK_LIBRARY_INFORMATION = "Please talk to Librarian. Thank you.";
 
-    /////////////////////////// MOVIE  //////////////////////////////
+    /////////////////////////// MOVIE //////////////////////////////
     public static final String MOVIE_LIST_HEADER = "Name | Director | Rating";
 
+    /////////////////////////// LOGIN //////////////////////////////
     public static final String LOGIN_REQUEST_LOGIN = "Login: ";
     public static final String LOGIN_REQUEST_PASSWORD = "Password: ";
     public static final String INVALID_LOGIN = "Invalid login or password. Try again.";
     public static final String VALID_LOGIN = "Logged with success. Welcome %s";
+
+
 }

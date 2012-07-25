@@ -27,11 +27,15 @@ public class AuthTest {
     }
 
     @Test
-    public void testUserCreation()
+    public void testUserLogout()
     {
-        User user = new User(login, password);
+        Auth auth = new Auth();
+        auth.login(login, password);
 
-        assertEquals(login, user.getLogin());
+        assertEquals(true, auth.isLogged());
+        auth.logout();
+        assertEquals(false, auth.isLogged());
+        assertEquals(null, auth.getUserLogged());
     }
 
     @Test
@@ -52,35 +56,5 @@ public class AuthTest {
         assertEquals(false, auth.login(login, password + "123"));
         assertEquals(false, auth.isLogged());
         assertEquals(null, auth.getUserLogged());
-    }
-
-    @Test
-    public void testUserMatch()
-    {
-        User u = new User(login, password);
-        assertTrue(u.match(login, password));
-    }
-
-    @Test
-    public void testUserNotMatch()
-    {
-        User u = new User(login, password);
-        assertFalse(u.match(login, password + "123"));
-    }
-
-    @Test
-      public void testIfUserIsLibrarian()
-    {
-        User u = new User(login, password);
-
-        assertTrue(u.isLibrarian());
-    }
-
-    @Test
-    public void testIfUserIsNotLibrarian()
-    {
-        User u = new User("111-1112", password);
-
-        assertFalse(u.isLibrarian());
     }
 }
