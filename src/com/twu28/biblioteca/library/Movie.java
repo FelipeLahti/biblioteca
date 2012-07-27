@@ -18,14 +18,6 @@ public class Movie {
         this.director = director;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getDirector() {
-        return director;
-    }
-
     public int getRating() throws NoRatingSetException {
         if ( rating == -1 )
             throw new NoRatingSetException();

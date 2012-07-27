@@ -23,8 +23,6 @@ public class MovieTest {
 
         Movie movie = new Movie(name, director, validRating);
 
-        Assert.assertEquals(name, movie.getName());
-        Assert.assertEquals(director, movie.getDirector());
         try {
             Assert.assertEquals(validRating, movie.getRating());
         } catch (NoRatingSetException e) {
@@ -36,9 +34,6 @@ public class MovieTest {
     public void testMovieCreationWithoutRating() {
 
         Movie movie = new Movie(name, director);
-
-        Assert.assertEquals(name, movie.getName());
-        Assert.assertEquals(director, movie.getDirector());
 
         try {
             movie.getRating();

@@ -15,14 +15,6 @@ public class Book {
         return id;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
     public boolean hasId(int bookId) {
         return bookId == id;
     }

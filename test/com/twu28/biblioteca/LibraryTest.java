@@ -76,7 +76,7 @@ public class LibraryTest {
     {
         Library lib = new Library();
 
-        assertEquals(1, lib.findBookById(1).getId());
+        assertTrue(lib.findBookById(1).hasId(1));
     }
 
     @Test
